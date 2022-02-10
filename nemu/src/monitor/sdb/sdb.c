@@ -47,7 +47,8 @@ static int cmd_x(char *args){
   
  // printf("%d %x",n,expr);
   for (int i = 0; i < n; i++){
-  printf("%08x \t%08x\n", expr,paddr_read(expr,4));
+	  
+	  printf("%08x: \t%08x\n", expr,paddr_read(expr,4));
   expr+=4;
   }
 	return 0;
