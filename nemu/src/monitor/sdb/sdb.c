@@ -40,6 +40,9 @@ static int cmd_q(char *args) {
 
 static int cmd_si(char *args) {
 	//change char *args into int step;
+	if (args == NULL){
+		*args = '1';
+	}
 	int step = *args - 48;
 
 	//debug
