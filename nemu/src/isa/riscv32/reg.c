@@ -11,7 +11,8 @@ const char *regs[] = {
 void isa_reg_display() {
     for (int i = 0; i < 8; i++){
 
-	printf("%s",regs[i]);}
+	printf("%s %s\n",regs[i], regs[check_reg_idx(1)]);
+		}
 }
 
 word_t isa_reg_str2val(const char *s, bool *success) {
