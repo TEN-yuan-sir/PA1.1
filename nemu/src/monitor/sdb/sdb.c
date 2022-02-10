@@ -9,8 +9,11 @@ static int is_batch_mode = false;
 
 void init_regex();
 void init_wp_pool();
+// Declaration of fuction paddr_read
 word_t paddr_read(paddr_t addr, int len);
-/* We use the `readline' library to provide more flexibility to read from stdin. */
+//Add this the problem can be sloved
+
+
 static char* rl_gets() {
   static char *line_read = NULL;
 
@@ -44,7 +47,7 @@ static int cmd_x(char *args){
   
  // printf("%d %x",n,expr);
   for (int i = 0; i < n; i++){
-  printf("08%x\n", paddr_read(expr,4));
+  printf("%08x\n", paddr_read(expr,4));
   expr+=4;
   }
 	return 0;
