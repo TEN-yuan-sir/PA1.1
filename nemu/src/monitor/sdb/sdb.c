@@ -32,6 +32,12 @@ static int cmd_c(char *args) {
   return 0;
 }
 
+static int cmd_x(char *args){	
+  char *arg = strtok(NULL, " ");
+  printf("%s",arg); 
+	return 0;
+}
+
 
 static int cmd_q(char *args) {
   return -1;
@@ -80,6 +86,7 @@ static struct {
   { "q", "Exit NEMU", cmd_q },
   { "si", "Execute mutiple times", cmd_si },
   { "info", "Show regs info", cmd_info },
+  { "x" , "Scan memory", cmd_x}
 
   /* TODO: Add more commands */
 
