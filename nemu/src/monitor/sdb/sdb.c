@@ -47,7 +47,7 @@ static int cmd_si(char *args) {
 //	printf("step:%d",step);
 	while(step){
 		printf("%dstep\n",step);
-		cpu_exec(-1);
+		cpu_exec(1);
 		step--;
 	}
 
