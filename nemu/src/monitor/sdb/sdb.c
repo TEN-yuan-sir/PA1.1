@@ -39,7 +39,7 @@ static int cmd_x(char *args){
 
   sscanf(N,"%d",&n);
   sscanf(EXPR,"%x",&expr);
-  printf("%s %s",N,EXPR); 
+  printf("%d %x",n,expr); 
 
   
 	return 0;
