@@ -39,11 +39,14 @@ static int cmd_q(char *args) {
 
 
 static int cmd_si(char *args) {
+	//change char *args into int step;
 	int step = *args - 48;
+
+	//debug
 	printf("args:%c",*args);
 	printf("step:%d",step);
 	while(step){
-		printf("%dstep",step);
+		printf("%dstep\n",step);
 		step--;
 	}
 
