@@ -43,10 +43,11 @@ static int cmd_si(char *args) {
 	int step = *args - 48;
 
 	//debug
-	printf("args:%c",*args);
-	printf("step:%d",step);
+//	printf("args:%c",*args);
+//	printf("step:%d",step);
 	while(step){
 		printf("%dstep\n",step);
+		cpu_exec(-1);
 		step--;
 	}
 
