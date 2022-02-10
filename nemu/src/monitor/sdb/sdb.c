@@ -33,7 +33,7 @@ static int cmd_c(char *args) {
 }
 
 static int cmd_x(char *args){	
-  char *arg = strtok(NULL, " ");
+  char *arg = strtok(args, " ");
   printf("%s",arg); 
 	return 0;
 }
