@@ -39,8 +39,9 @@ static int cmd_q(char *args) {
 
 
 static int cmd_si(char *args) {
-	
+	int step = *args - 48;
 	printf("args:%c",*args);
+	printf("step:%d",step);
   return 0;
 }
 
