@@ -33,9 +33,15 @@ static int cmd_c(char *args) {
 }
 
 static int cmd_x(char *args){	
-  char *arg = strtok(args, " ");
-  printf("%s",arg); 
-  printf("%s",args); 
+  char *N = strtok(NULL, " ");
+  char *EXPR = strtok(NULL, " ");
+  int n,expr;
+
+  sscanf(N,"%d",&n);
+  sscanf(EXPR,"%x",&expr);
+  printf("%s %s",N,EXPR); 
+
+  
 	return 0;
 }
 
@@ -50,7 +56,7 @@ static int cmd_si(char *args) {
 	if (args == NULL){
 		args = "1";
 	}
-	int step = *args - 48;
+	int step =*args - 48;
 
 	//debug
 //	printf("args:%c",*args);
