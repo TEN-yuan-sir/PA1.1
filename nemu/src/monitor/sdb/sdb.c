@@ -58,8 +58,9 @@ static int cmd_si(char *args) {
 }
 
 static int cmd_info(char *args) {
-	printf("%s",args);
-	if(*args == 'r'){
+	char *arg = strtok(NULL," ");
+
+	if(*arg == 'r'){
 	isa_reg_display();
 	}
   return 0;
