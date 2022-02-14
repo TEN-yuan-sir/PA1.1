@@ -83,8 +83,10 @@ static int cmd_info(char *args) {
 
 	if (args == NULL){
 		printf("Invaild Input");
+		return 0;
 	}
-	if(strcmp(args,"r")==0){
+	char *arg = strtok(NULL," ");
+	if(strcmp(arg,"r")==0){
 	isa_reg_display();
 	}
   return 0;
