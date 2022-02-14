@@ -6,10 +6,14 @@
 
 static int is_batch_mode = false;
 
+
 void init_regex();
 void init_wp_pool();
+// Declaration of fuction paddr_read
+word_t paddr_read(paddr_t addr, int len);
+//Add this the problem can be sloved
 
-/* We use the `readline' library to provide more flexibility to read from stdin. */
+
 static char* rl_gets() {
   static char *line_read = NULL;
 
@@ -32,9 +36,62 @@ static int cmd_c(char *args) {
   return 0;
 }
 
+static int cmd_x(char *args){	
+  char *N = strtok(NULL, " ");
+  char *EXPR = strtok(NULL, " ");
+  int n;
+  vaddr_t expr;
+  
+  sscanf(N,"%d",&n);
+  sscanf(EXPR,"%x",&expr);
+  
+ // printf("%d %x",n,expr);
+  for (int i = 0; i < n; i++){
+	  
+	  printf("%08x: \t%08x\n", expr,paddr_read(expr,4));
+  expr+=4;
+  }
+	return 0;
+}
+
 
 static int cmd_q(char *args) {
   return -1;
+}
+
+
+static int cmd_si(char *args) {
+	//change char *args into int step;
+	if (args == NULL){
+		args = "1";
+	}
+	int step =*args - 48;
+
+	//debug
+//	printf("args:%c",*args);
+//	printf("step:%d",step);
+	while(step){
+		//printf("step%d:\n",step);
+		cpu_exec(1);
+		step--;
+	}
+
+  return 0;
+}
+
+static int cmd_info(char *args) {
+
+	//check the input and do return
+	if (args == NULL){
+		printf("Invaild Input\n");
+		return 0;
+	}
+
+	char *arg = strtok(NULL," ");
+	if(strcmp(arg,"r")==0){
+	isa_reg_display();
+	}
+  return 0;
 }
 
 static int cmd_help(char *args);
@@ -47,6 +104,9 @@ static struct {
   { "help", "Display informations about all supported commands", cmd_help },
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
+  { "si", "Execute mutiple times", cmd_si },
+  { "info", "Show regs info", cmd_info },
+  { "x" , "Scan memory", cmd_x}
 
   /* TODO: Add more commands */
 
